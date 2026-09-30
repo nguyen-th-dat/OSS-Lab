@@ -69,34 +69,42 @@ $so1 = $_POST['so1'];
 $so2 = $_POST['so2'];
 $pheptinh = $_POST['pheptinh'];
 
-switch ($pheptinh) {
+    if (is_numeric($so1) && is_numeric($so2)) {
+        switch ($pheptinh) {
 
-    case "cong":
-        $tenPhepTinh = "Cộng";
-        $ketqua = cong($so1, $so2);
-        break;
+            case "cong":
+                $tenPhepTinh = "Cộng";
+                $ketqua = cong($so1, $so2);
+                break;
 
-    case "tru":
-        $tenPhepTinh = "Trừ";
-        $ketqua = tru($so1, $so2);
-        break;
+            case "tru":
+                $tenPhepTinh = "Trừ";
+                $ketqua = tru($so1, $so2);
+                break;
 
-    case "nhan":
-        $tenPhepTinh = "Nhân";
-        $ketqua = nhan($so1, $so2);
-        break;
+            case "nhan":
+                $tenPhepTinh = "Nhân";
+                $ketqua = nhan($so1, $so2);
+                break;
 
-    case "chia":
-        $tenPhepTinh = "Chia";
+            case "chia":
+                $tenPhepTinh = "Chia";
 
-        if ($so2 == 0) {
-            $ketqua = "Không thể chia cho 0";
-        } else {
-            $ketqua = chia($so1, $so2);
+                if ($so2 == 0) {
+                    $ketqua = "Không thể chia cho 0";
+                    // echo "<script>alert('Du lieu khong hop le!');</script>";
+                    echo "<script>window.history.back(-1);</script>";
+                    exit;
+                } else {
+                    $ketqua = chia($so1, $so2);
+                }
+
+                break;
         }
-
-        break;
-}
+    } else {
+        echo "<script>window.history.back(-1);</script>";
+        exit;
+    }
 
 ?>
 
