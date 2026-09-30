@@ -12,7 +12,7 @@ if ($password != $confirm_password) {
     echo "<font color='red'>Incorrect confirm password!</font>";
 }
 else {
-    echo "<font color='red'>Thank you $fullname, please confirm registration in your email: $email";
+    echo "<font color='red'>Thank you $fullname, please confirm registration in your email: $email</font>";
 }
 
 ?>
