@@ -43,31 +43,31 @@
 
 <body>
 
-<?php
+    <?php
 
-function cong($a, $b)
-{
-    return $a + $b;
-}
+    function cong($a, $b)
+    {
+        return $a + $b;
+    }
 
-function tru($a, $b)
-{
-    return $a - $b;
-}
+    function tru($a, $b)
+    {
+        return $a - $b;
+    }
 
-function nhan($a, $b)
-{
-    return $a * $b;
-}
+    function nhan($a, $b)
+    {
+        return $a * $b;
+    }
 
-function chia($a, $b)
-{
-    return $a / $b;
-}
+    function chia($a, $b)
+    {
+        return $a / $b;
+    }
 
-$so1 = $_POST['so1'];
-$so2 = $_POST['so2'];
-$pheptinh = $_POST['pheptinh'];
+    $so1 = $_POST['so1'];
+    $so2 = $_POST['so2'];
+    $pheptinh = $_POST['pheptinh'];
 
     if (is_numeric($so1) && is_numeric($so2)) {
         switch ($pheptinh) {
@@ -106,71 +106,72 @@ $pheptinh = $_POST['pheptinh'];
         exit;
     }
 
-?>
+    ?>
 
-<table>
+    <table>
 
-    <tr>
-        <td colspan="2" class="title">
-            PHÉP TÍNH TRÊN HAI SỐ
-        </td>
-    </tr>
+        <tr>
+            <td colspan="2" class="title">
+                PHÉP TÍNH TRÊN HAI SỐ
+            </td>
+        </tr>
 
-    <tr>
-        <td class="label">
-            Chọn phép tính:
-        </td>
+        <tr>
+            <td class="label">
+                Chọn phép tính:
+            </td>
 
-        <td>
-            <b><?php echo $tenPhepTinh; ?></b>
-        </td>
-    </tr>
+            <td>
+                <b><?php echo $tenPhepTinh; ?></b>
+            </td>
+        </tr>
 
-    <tr>
-        <td class="label">
-            Số 1:
-        </td>
+        <tr>
+            <td class="label">
+                Số 1:
+            </td>
 
-        <td>
-            <input type="text"
-                   value="<?php echo $so1; ?>"
-                   readonly>
-        </td>
-    </tr>
+            <td>
+                <input type="text"
+                    value="<?php echo $so1; ?>"
+                    readonly>
+            </td>
+        </tr>
 
-    <tr>
-        <td class="label">
-            Số 2:
-        </td>
+        <tr>
+            <td class="label">
+                Số 2:
+            </td>
 
-        <td>
-            <input type="text"
-                   value="<?php echo $so2; ?>"
-                   readonly>
-        </td>
-    </tr>
+            <td>
+                <input type="text"
+                    value="<?php echo $so2; ?>"
+                    readonly>
+            </td>
+        </tr>
 
-    <tr>
-        <td class="result">
-            Kết quả:
-        </td>
+        <tr>
+            <td class="result">
+                Kết quả:
+            </td>
 
-        <td>
-            <input type="text"
-                   value="<?php echo $ketqua; ?>"
-                   readonly>
-        </td>
-    </tr>
+            <td>
+                <input type="text"
+                    value="<?php echo $ketqua; ?>"
+                    readonly>
+            </td>
+        </tr>
 
-    <tr>
-        <td colspan="2" class="back">
-            <a href="javascript:window.history.back(-1);">
-                Quay lại trang trước
-            </a>
-        </td>
-    </tr>
+        <tr>
+            <td colspan="2" class="back">
+                <a href="javascript:window.history.back(-1);">
+                    Quay lại trang trước
+                </a>
+            </td>
+        </tr>
 
-</table>
+    </table>
 
 </body>
+
 </html>

@@ -34,74 +34,75 @@
 
 <body>
 
-<form action="ketquapheptinh.php" method="post">
+    <form action="ketquapheptinh.php" method="post">
 
-    <table>
+        <table>
 
-        <tr>
-            <td colspan="2" class="title">
-                PHÉP TÍNH TRÊN HAI SỐ
-            </td>
-        </tr>
+            <tr>
+                <td colspan="2" class="title">
+                    PHÉP TÍNH TRÊN HAI SỐ
+                </td>
+            </tr>
 
-        <tr>
-            <td class="pheptinh">
-                Chọn phép tính:
-            </td>
+            <tr>
+                <td class="pheptinh">
+                    Chọn phép tính:
+                </td>
 
-            <td>
-                <input type="radio" name="pheptinh" value="cong" checked>
-                Cộng
+                <td>
+                    <input type="radio" name="pheptinh" value="cong" checked>
+                    Cộng
 
-                <input type="radio" name="pheptinh" value="tru">
-                Trừ
+                    <input type="radio" name="pheptinh" value="tru">
+                    Trừ
 
-                <input type="radio" name="pheptinh" value="nhan">
-                Nhân
+                    <input type="radio" name="pheptinh" value="nhan">
+                    Nhân
 
-                <input type="radio" name="pheptinh" value="chia">
-                Chia
-            </td>
-        </tr>
+                    <input type="radio" name="pheptinh" value="chia">
+                    Chia
+                </td>
+            </tr>
 
-        <tr>
-            <td class="label">
-                Số thứ nhất:
-            </td>
+            <tr>
+                <td class="label">
+                    Số thứ nhất:
+                </td>
 
-            <td>
-                <input type="number"
-                       name="so1"
-                       step="any"
-                       required>
-            </td>
-        </tr>
+                <td>
+                    <input type="number"
+                        name="so1"
+                        step="any"
+                        required>
+                </td>
+            </tr>
 
-        <tr>
-            <td class="label">
-                Số thứ hai:
-            </td>
+            <tr>
+                <td class="label">
+                    Số thứ hai:
+                </td>
 
-            <td>
-                <input type="number"
-                       name="so2"
-                       step="any"
-                       required>
-            </td>
-        </tr>
+                <td>
+                    <input type="number"
+                        name="so2"
+                        step="any"
+                        required>
+                </td>
+            </tr>
 
-        <tr>
-            <td></td>
+            <tr>
+                <td></td>
 
-            <td>
-                <input type="submit"
-                       value="Tính">
-            </td>
-        </tr>
+                <td>
+                    <input type="submit"
+                        value="Tính">
+                </td>
+            </tr>
 
-    </table>
+        </table>
 
-</form>
+    </form>
 
 </body>
+
 </html>
