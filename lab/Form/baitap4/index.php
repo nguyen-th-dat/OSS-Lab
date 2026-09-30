@@ -53,7 +53,7 @@
 
     ?>
 
-    <form method="post" name="TTTD">
+    <form method="post" action="index.php" name="KQTDH">
 
         <table style="background: beige">
 
