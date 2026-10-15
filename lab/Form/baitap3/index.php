@@ -27,6 +27,7 @@
         $csm = $_POST['ChiSoMoi'];
         $dg = $_POST['DonGia'];
 
+        if ($tench != '') {
         if (is_numeric($csc) and is_numeric($csm) and is_numeric($dg))
 
             if ($csc > 0 and $csm > 0)
@@ -42,15 +43,19 @@
             }
         else
             $msg = "Chi so moi va chi so cu phai la so";
+        }
+        else{
+            $msg = "Ten chu ho khong duoc de trong";
+        }
     }
     ?>
 
-    <form method="post" name="TTTD">
+    <form method="post" name="TTTD" action="index.php">
 
         <table style="background: beige">
 
-            <tr style="background: lightpink">
-                <th colspan="2">
+            <tr style="background: #ffda77">
+                <th colspan="2" style="color: #97500d;">
                     Thanh Toán Tiền Điện
                 </th>
             </tr>
@@ -99,7 +104,8 @@
                         step="any"
                         name="DonGia"
                         size="20"
-                        value="20000">
+                        value="20000"
+                        readonly>
                     <!-- value="<?php if (isset($dg)) echo "$dg"; ?>"> -->
                     (VND)
                 </td>
