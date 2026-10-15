@@ -55,10 +55,10 @@
 
     <form method="post" action="index.php" name="KQTDH">
 
-        <table style="background: beige">
+        <table style="background: #ffe8fa">
 
-            <tr style="background: lightpink">
-                <th colspan="2">
+            <tr style="background: #e34f81">
+                <th colspan="2" style="color: white;">
                     Kết quả thi Đại học
                 </th>
             </tr>
