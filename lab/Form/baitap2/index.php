@@ -16,7 +16,7 @@ if (isset($_POST['submit'])){
         $s=round(PI*$r*$r,1);
         $p=round(2*PI*$r,1);
     }else{
-        $r="ban kinh phai la so hoac khong duoc de trong";
+        $msg="ban kinh phai la so >= 0 hoac khong duoc de trong";
     }
 }
 if (isset($_POST['reset'])){
@@ -25,10 +25,12 @@ if (isset($_POST['reset'])){
     $r="";
 }
 ?>
-<form action="" method="post">
-    <table align="center" bgcolor="#faebd7">
-        <tr>
-            <td colspan="2" bgcolor="orange"><h1>Diện tích và chu vi hình tròn</h1></td>
+<form action="index.php" method="post">
+    <table bgcolor="#faebd7">
+        <tr style="background: #ffda77">
+            <th colspan="2" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"">
+                <h3 style="color: #97500d;">Diện tích và chu vi hình tròn</h3>
+            </th>
         </tr>
         <tr>
             <td>Bán Kính</td>
@@ -50,6 +52,14 @@ if (isset($_POST['reset'])){
             <td colspan="2" align="center">
                 <input type="submit" name="submit" value="Tính">
                 <input type="submit" name="reset" value="Clear">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="color: red">
+                <?php
+                if (isset($msg))
+                    echo $msg;
+                ?>
             </td>
         </tr>
     </table>
