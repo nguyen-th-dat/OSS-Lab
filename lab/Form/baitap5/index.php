@@ -61,10 +61,10 @@
 
     <form method="post" name="TTTD">
 
-        <table style="background: beige">
+        <table style="background: #03b0b6">
 
-            <tr style="background: lightpink">
-                <th colspan="2">
+            <tr style="background: #04898c">
+                <th colspan="2" style="color: white;">
                     Tinh Tien Karaoke
                 </th>
             </tr>
