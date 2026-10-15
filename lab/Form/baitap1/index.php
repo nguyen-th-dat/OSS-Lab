@@ -43,12 +43,12 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<form method="post" name="HCN">
+<form method="post" name="HCN" action="index.php">
 
     <table style="background: beige">
 
-        <tr style="background: lightpink">
-            <th colspan="2">
+        <tr style="background: #ffda77">
+            <th colspan="2" style="color: #97500d;">
                 DIEN TICH HINH CHU NHAT
             </th>
         </tr>
