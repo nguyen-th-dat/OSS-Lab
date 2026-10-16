@@ -8,20 +8,28 @@
 </head>
 
 <body>
-    <?php
-    
 
+    <?php
     if (isset($_POST['tinh'])) {
         $daySo = $_POST['daySo'];
 
         $arr = explode(",", $daySo);
         $tong = 0;
+        $hopLe = true;
 
         foreach ($arr as $value) {
-            $tong += (float) trim($value);
+            $value = trim($value);
+
+            if (is_numeric($value)) {
+                $tong += (float) $value;
+            } else {
+                echo "<span style='color: red;'>\"$value\" khong phai la so</span><br>";
+                $hopLe = false;
+            }
         }
     }
     ?>
+
 
     <form method="post" action="baitap2.php">
         <table>
@@ -49,7 +57,7 @@
                 <td>Tổng dãy số:</td>
                 <td>
                     <input type="text" class="result"
-                        value="<?php if (isset($tong)) echo "$tong"; ?>" readonly>
+                        value="<?php if (isset($tong) && $hopLe == true) echo "$tong"; ?>" readonly>
                 </td>
             </tr>
 

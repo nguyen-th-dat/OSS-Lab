@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -8,50 +9,41 @@
 
 <body>
 
-<form action="config.php" method="post">
+<form action="config.php" method="post" id="infoForm">
 
     <fieldset>
         <legend>Enter Your Information</legend>
 
         <table>
-
             <tr>
                 <td>Fullname</td>
                 <td>
-                    <input type="text"
-                           name="fullname">
+                    <input type="text" name="fullname">
                 </td>
             </tr>
 
             <tr>
                 <td>Address</td>
                 <td>
-                    <input type="text"
-                           name="address">
+                    <input type="text" name="address">
                 </td>
             </tr>
 
             <tr>
                 <td>Phone</td>
                 <td>
-                    <input type="text"
-                           name="phone">
+                    <input type="text" name="phone">
                 </td>
             </tr>
 
             <tr>
                 <td>Gender</td>
                 <td>
-                    <input type="radio"
-                           name="gender"
-                           value="Nam"
-                           checked>
-                    Nam
+                    <input type="radio" name="gender"
+                           value="Nam" checked> Nam
 
-                    <input type="radio"
-                           name="gender"
-                           value="Nữ">
-                    Nữ
+                    <input type="radio" name="gender"
+                           value="Nữ"> Nữ
                 </td>
             </tr>
 
@@ -59,21 +51,10 @@
                 <td>Country</td>
                 <td>
                     <select name="country">
-                        <option value="Việt Nam">
-                            Việt Nam
-                        </option>
-
-                        <option value="Mỹ">
-                            Mỹ
-                        </option>
-
-                        <option value="Nhật Bản">
-                            Nhật Bản
-                        </option>
-
-                        <option value="Hàn Quốc">
-                            Hàn Quốc
-                        </option>
+                        <option value="Việt Nam">Việt Nam</option>
+                        <option value="Mỹ">Mỹ</option>
+                        <option value="Nhật Bản">Nhật Bản</option>
+                        <option value="Hàn Quốc">Hàn Quốc</option>
                     </select>
                 </td>
             </tr>
@@ -81,54 +62,104 @@
             <tr>
                 <td>Study</td>
                 <td>
-                    <input type="checkbox"
-                           name="study[]"
-                           value="PHP & MySQL">
-                    PHP & MySQL
+                    <input type="checkbox" name="study[]"
+                           value="PHP & MySQL"> PHP & MySQL
 
-                    <input type="checkbox"
-                           name="study[]"
-                           value="ASP.NET">
-                    ASP.NET
+                    <input type="checkbox" name="study[]"
+                           value="ASP.NET"> ASP.NET
 
-                    <input type="checkbox"
-                           name="study[]"
-                           value="CCNA">
-                    CCNA
+                    <input type="checkbox" name="study[]"
+                           value="CCNA"> CCNA
 
-                    <input type="checkbox"
-                           name="study[]"
-                           value="Security+">
-                    Security+
+                    <input type="checkbox" name="study[]"
+                           value="Security+"> Security+
                 </td>
             </tr>
 
             <tr>
                 <td>Note</td>
                 <td>
-                    <textarea name="note"
-                              rows="5"
-                              cols="50"></textarea>
+                    <textarea name="note" rows="5" cols="50"></textarea>
                 </td>
             </tr>
 
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit"
-                           name="submit"
-                           value="Gửi">
-
-                    <input type="reset"
-                           value="Hủy">
+                    <input type="submit" name="submit" value="Gửi">
+                    <input type="reset" value="Hủy" id="resetBtn">
                 </td>
             </tr>
-
         </table>
 
     </fieldset>
 
 </form>
+
+<script>
+    const form = document.getElementById("infoForm");
+    const resetBtn = document.getElementById("resetBtn");
+    const storageKey = "userInformation";
+
+    // Khoi phuc du lieu da luu
+    const savedData = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+    for (const element of form.elements) {
+        if (!element.name || element.type === "submit"
+            || element.type === "reset") {
+            continue;
+        }
+
+        if (element.type === "radio") {
+            element.checked = savedData[element.name] === element.value;
+        } else if (element.type === "checkbox") {
+            element.checked = (savedData[element.name] || [])
+                .includes(element.value);
+        } else if (element.tagName === "SELECT") {
+            element.value = savedData[element.name] ?? element.options[0].value;
+        } else {
+            element.value = savedData[element.name] ?? "";
+        }
+    }
+
+    // Luu du lieu moi khi thay doi
+    form.addEventListener("input", saveData);
+    form.addEventListener("change", saveData);
+
+    function saveData() {
+        const data = {};
+
+        for (const element of form.elements) {
+            if (!element.name || element.type === "submit"
+                || element.type === "reset") {
+                continue;
+            }
+
+            if (element.type === "radio") {
+                if (element.checked) {
+                    data[element.name] = element.value;
+                }
+            } else if (element.type === "checkbox") {
+                if (!data[element.name]) {
+                    data[element.name] = [];
+                }
+
+                if (element.checked) {
+                    data[element.name].push(element.value);
+                }
+            } else {
+                data[element.name] = element.value;
+            }
+        }
+
+        localStorage.setItem(storageKey, JSON.stringify(data));
+    }
+
+    // Xoa du lieu da luu khi nhan nut Huy
+    resetBtn.addEventListener("click", function () {
+        localStorage.removeItem(storageKey);
+    });
+</script>
 
 </body>
 </html>
